@@ -1,6 +1,11 @@
 <template>
 <div>
-  <button @click="getUsers">Get Users</button>
+  <table>
+    <tr v-for="user in users">
+      <td>{{user.id}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </table>
   <pre>{{users}}</pre>
 </div>
 </template>
@@ -9,10 +14,9 @@
 import Axios from 'axios'
 
 export default {
+  props: ['users'],
   data () {
-    return {
-      users: {}
-    }
+    return {}
   },
   mounted () {
     // This lifecycle hook could be used to mount users on load.
